@@ -9,6 +9,7 @@
     </parent>
     <properties>
         <jdbc.url>jdbc:h2:./h2/default;AUTO_SERVER=TRUE</jdbc.url>
+        <univocity-parsers.version>2.9.1</univocity-parsers.version>
     </properties>
     <modelVersion>4.0.0</modelVersion>
 
@@ -34,6 +35,11 @@
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
             <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.univocity</groupId>
+            <artifactId>univocity-parsers</artifactId>
+            <version>${univocity-parsers.version}</version>
         </dependency>
     </dependencies>
 

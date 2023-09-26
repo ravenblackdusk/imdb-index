@@ -4,7 +4,11 @@
 package org.jooq.generated;
 
 
-import org.jooq.generated.tables.TableName;
+import org.jooq.generated.tables.NameBasics;
+import org.jooq.generated.tables.TitleBasics;
+import org.jooq.generated.tables.TitleCrew;
+import org.jooq.generated.tables.TitlePrincipals;
+import org.jooq.generated.tables.TitleRatings;
 
 
 /**
@@ -14,7 +18,27 @@ import org.jooq.generated.tables.TableName;
 public class Tables {
 
     /**
-     * The table <code>PUBLIC.TABLE_NAME</code>.
+     * The table <code>PUBLIC.NAME_BASICS</code>.
      */
-    public static final TableName TABLE_NAME = TableName.TABLE_NAME;
+    public static final NameBasics NAME_BASICS = NameBasics.NAME_BASICS;
+
+    /**
+     * The table <code>PUBLIC.TITLE_BASICS</code>.
+     */
+    public static final TitleBasics TITLE_BASICS = TitleBasics.TITLE_BASICS;
+
+    /**
+     * The table <code>PUBLIC.TITLE_CREW</code>.
+     */
+    public static final TitleCrew TITLE_CREW = TitleCrew.TITLE_CREW;
+
+    /**
+     * The table <code>PUBLIC.TITLE_PRINCIPALS</code>.
+     */
+    public static final TitlePrincipals TITLE_PRINCIPALS = TitlePrincipals.TITLE_PRINCIPALS;
+
+    /**
+     * The table <code>PUBLIC.TITLE_RATINGS</code>.
+     */
+    public static final TitleRatings TITLE_RATINGS = TitleRatings.TITLE_RATINGS;
 }

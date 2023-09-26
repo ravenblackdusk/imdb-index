@@ -9,7 +9,11 @@ import java.util.List;
 
 import org.jooq.Catalog;
 import org.jooq.Table;
-import org.jooq.generated.tables.TableName;
+import org.jooq.generated.tables.NameBasics;
+import org.jooq.generated.tables.TitleBasics;
+import org.jooq.generated.tables.TitleCrew;
+import org.jooq.generated.tables.TitlePrincipals;
+import org.jooq.generated.tables.TitleRatings;
 import org.jooq.impl.SchemaImpl;
 
 
@@ -27,9 +31,29 @@ public class Public extends SchemaImpl {
     public static final Public PUBLIC = new Public();
 
     /**
-     * The table <code>PUBLIC.TABLE_NAME</code>.
+     * The table <code>PUBLIC.NAME_BASICS</code>.
      */
-    public final TableName TABLE_NAME = TableName.TABLE_NAME;
+    public final NameBasics NAME_BASICS = NameBasics.NAME_BASICS;
+
+    /**
+     * The table <code>PUBLIC.TITLE_BASICS</code>.
+     */
+    public final TitleBasics TITLE_BASICS = TitleBasics.TITLE_BASICS;
+
+    /**
+     * The table <code>PUBLIC.TITLE_CREW</code>.
+     */
+    public final TitleCrew TITLE_CREW = TitleCrew.TITLE_CREW;
+
+    /**
+     * The table <code>PUBLIC.TITLE_PRINCIPALS</code>.
+     */
+    public final TitlePrincipals TITLE_PRINCIPALS = TitlePrincipals.TITLE_PRINCIPALS;
+
+    /**
+     * The table <code>PUBLIC.TITLE_RATINGS</code>.
+     */
+    public final TitleRatings TITLE_RATINGS = TitleRatings.TITLE_RATINGS;
 
     /**
      * No further instances allowed
@@ -47,7 +71,11 @@ public class Public extends SchemaImpl {
     @Override
     public final List<Table<?>> getTables() {
         return Arrays.asList(
-            TableName.TABLE_NAME
+            NameBasics.NAME_BASICS,
+            TitleBasics.TITLE_BASICS,
+            TitleCrew.TITLE_CREW,
+            TitlePrincipals.TITLE_PRINCIPALS,
+            TitleRatings.TITLE_RATINGS
         );
     }
 }

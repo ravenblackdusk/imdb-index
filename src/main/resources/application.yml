@@ -1,1 +1,5 @@
-imdb.data-dir: data
+spring.datasource.url: jdbc:h2:./h2/default;AUTO_SERVER=TRUE
+
+imdb:
+  datasets-dir: datasets
+  fill-db: false

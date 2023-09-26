@@ -4,10 +4,19 @@
 package org.jooq.generated;
 
 
+import org.jooq.ForeignKey;
 import org.jooq.TableField;
 import org.jooq.UniqueKey;
-import org.jooq.generated.tables.TableName;
-import org.jooq.generated.tables.records.TableNameRecord;
+import org.jooq.generated.tables.NameBasics;
+import org.jooq.generated.tables.TitleBasics;
+import org.jooq.generated.tables.TitleCrew;
+import org.jooq.generated.tables.TitlePrincipals;
+import org.jooq.generated.tables.TitleRatings;
+import org.jooq.generated.tables.records.NameBasicsRecord;
+import org.jooq.generated.tables.records.TitleBasicsRecord;
+import org.jooq.generated.tables.records.TitleCrewRecord;
+import org.jooq.generated.tables.records.TitlePrincipalsRecord;
+import org.jooq.generated.tables.records.TitleRatingsRecord;
 import org.jooq.impl.DSL;
 import org.jooq.impl.Internal;
 
@@ -23,5 +32,18 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
-    public static final UniqueKey<TableNameRecord> TABLE_NAME_PK = Internal.createUniqueKey(TableName.TABLE_NAME, DSL.name("TABLE_NAME_PK"), new TableField[] { TableName.TABLE_NAME.COLUMN_NAME }, true);
+    public static final UniqueKey<NameBasicsRecord> NAME_BASICS_PK = Internal.createUniqueKey(NameBasics.NAME_BASICS, DSL.name("NAME_BASICS_PK"), new TableField[] { NameBasics.NAME_BASICS.NCONST }, true);
+    public static final UniqueKey<TitleBasicsRecord> TITLE_BASICS_PK = Internal.createUniqueKey(TitleBasics.TITLE_BASICS, DSL.name("TITLE_BASICS_PK"), new TableField[] { TitleBasics.TITLE_BASICS.TCONST }, true);
+    public static final UniqueKey<TitleCrewRecord> TITLE_CREW_PK = Internal.createUniqueKey(TitleCrew.TITLE_CREW, DSL.name("TITLE_CREW_PK"), new TableField[] { TitleCrew.TITLE_CREW.TCONST }, true);
+    public static final UniqueKey<TitlePrincipalsRecord> TITLE_PRINCIPALS_PK = Internal.createUniqueKey(TitlePrincipals.TITLE_PRINCIPALS, DSL.name("TITLE_PRINCIPALS_PK"), new TableField[] { TitlePrincipals.TITLE_PRINCIPALS.TCONST }, true);
+    public static final UniqueKey<TitleRatingsRecord> TITLE_RATINGS_PK = Internal.createUniqueKey(TitleRatings.TITLE_RATINGS, DSL.name("TITLE_RATINGS_PK"), new TableField[] { TitleRatings.TITLE_RATINGS.TCONST }, true);
+
+    // -------------------------------------------------------------------------
+    // FOREIGN KEY definitions
+    // -------------------------------------------------------------------------
+
+    public static final ForeignKey<TitleCrewRecord, TitleBasicsRecord> CONSTRAINT_B4 = Internal.createForeignKey(TitleCrew.TITLE_CREW, DSL.name("CONSTRAINT_B4"), new TableField[] { TitleCrew.TITLE_CREW.TCONST }, Keys.TITLE_BASICS_PK, new TableField[] { TitleBasics.TITLE_BASICS.TCONST }, true);
+    public static final ForeignKey<TitlePrincipalsRecord, TitleBasicsRecord> CONSTRAINT_E = Internal.createForeignKey(TitlePrincipals.TITLE_PRINCIPALS, DSL.name("CONSTRAINT_E"), new TableField[] { TitlePrincipals.TITLE_PRINCIPALS.TCONST }, Keys.TITLE_BASICS_PK, new TableField[] { TitleBasics.TITLE_BASICS.TCONST }, true);
+    public static final ForeignKey<TitlePrincipalsRecord, NameBasicsRecord> TITLE_PRINCIPALS_NAME_BASICS_FK = Internal.createForeignKey(TitlePrincipals.TITLE_PRINCIPALS, DSL.name("TITLE_PRINCIPALS_NAME_BASICS_FK"), new TableField[] { TitlePrincipals.TITLE_PRINCIPALS.NCONST }, Keys.NAME_BASICS_PK, new TableField[] { NameBasics.NAME_BASICS.NCONST }, true);
+    public static final ForeignKey<TitleRatingsRecord, TitleBasicsRecord> CONSTRAINT_B = Internal.createForeignKey(TitleRatings.TITLE_RATINGS, DSL.name("CONSTRAINT_B"), new TableField[] { TitleRatings.TITLE_RATINGS.TCONST }, Keys.TITLE_BASICS_PK, new TableField[] { TitleBasics.TITLE_BASICS.TCONST }, true);
 }
