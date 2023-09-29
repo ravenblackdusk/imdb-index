@@ -31,7 +31,7 @@ class TitleService {
 
     private Table<Record1<String>> filterTitlePrincipalsByName(String name, String alias) {
         return dslContext.select(TITLE_PRINCIPALS.TCONST).from(TITLE_PRINCIPALS)
-                .where(TITLE_PRINCIPALS.NCONST.eq(name)).asTable(alias);
+                .where(TITLE_PRINCIPALS.NCONST.eq(name).and(TITLE_PRINCIPALS.CATEGORY.eq("actor"))).asTable(alias);
     }
 
     List<String> getByTwoActors(String firstActor, String secondActor) {

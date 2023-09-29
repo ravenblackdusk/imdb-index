@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48d92562-67b5-4983-884c-530d97006065" name="Changes" comment="parse all">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c880b4cc-8b61-44ff-97d4-58bd179d6a20.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c880b4cc-8b61-44ff-97d4-58bd179d6a20.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c880b4cc-8b61-44ff-97d4-58bd179d6a20/storage_v2/_src_/database/DEFAULT.IWLfhg/schema/PUBLIC.aaZQjQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c880b4cc-8b61-44ff-97d4-58bd179d6a20/storage_v2/_src_/database/DEFAULT.IWLfhg/schema/PUBLIC.aaZQjQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="48d92562-67b5-4983-884c-530d97006065" name="Changes" comment="Optimize first two queries">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/title/TitleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/title/TitleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V0_1_0__init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V0_1_0__init.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695733315029</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Optimize first two queries">
+      <option name="closed" value="true" />
+      <created>1695978374278</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1695978374278</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,7 +182,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initialize repository" />
     <MESSAGE value="Initialize jooq" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initialize jooq" />
+    <MESSAGE value="Optimize first two queries" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimize first two queries" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
