@@ -1,10 +1,6 @@
 package org.example.title;
 
-import org.jooq.DSLContext;
-import org.jooq.Record1;
-import org.jooq.SelectConditionStep;
-import org.jooq.TableField;
-import org.jooq.generated.tables.records.TitlePrincipalsRecord;
+import org.jooq.*;
 import org.jooq.generated.tables.records.TitleRatingsRecord;
 import org.springframework.stereotype.Service;
 
@@ -27,23 +23,24 @@ class TitleService {
     }
 
     List<String> getSameDirectorAndWriterAlive() {
-        return dslContext.select(TITLE_CREW.TCONST)
-                .from(TITLE_CREW.innerJoin(NAME_BASICS).on(TITLE_CREW.DIRECTORS.eq(NAME_BASICS.NCONST)))
-                .where(TITLE_CREW.DIRECTORS.eq(TITLE_CREW.WRITERS).and(NAME_BASICS.DEATH_YEAR.isNull())).fetch()
+        return dslContext.select(NAME_BASICS.NCONST)
+                .from(NAME_BASICS.innerJoin(TITLE_CREW).on(NAME_BASICS.NCONST.eq(TITLE_CREW.WRITERS)))
+                .where(NAME_BASICS.DEATH_YEAR.isNull().and(TITLE_CREW.DIRECTORS.eq(TITLE_CREW.WRITERS))).fetch()
                 .stream().map(Record1::value1).toList();
     }
 
-    private SelectConditionStep<TitlePrincipalsRecord> filterTitlePrincipalsByName(String name) {
-        return dslContext.selectFrom(TITLE_PRINCIPALS).where(TITLE_PRINCIPALS.NCONST.eq(name));
+    private Table<Record1<String>> filterTitlePrincipalsByName(String name, String alias) {
+        return dslContext.select(TITLE_PRINCIPALS.TCONST).from(TITLE_PRINCIPALS)
+                .where(TITLE_PRINCIPALS.NCONST.eq(name)).asTable(alias);
     }
 
     List<String> getByTwoActors(String firstActor, String secondActor) {
-        var first = filterTitlePrincipalsByName(firstActor).asTable();
-        var second = filterTitlePrincipalsByName(secondActor);
-        return dslContext.selectDistinct(TITLE_PRINCIPALS.TCONST).from(
-                first.innerJoin(second).on(requireNonNull(first.field(TITLE_PRINCIPALS.TCONST))
-                        .eq(second.field(TITLE_PRINCIPALS.TCONST)))
-        ).fetch().stream().map(Record1::value1).toList();
+        var first = filterTitlePrincipalsByName(firstActor, "first");
+        var second = filterTitlePrincipalsByName(secondActor, "second");
+        Field<String> firstTconst = requireNonNull(first.field(TITLE_PRINCIPALS.TCONST));
+        return dslContext.selectDistinct(firstTconst)
+                .from(first.innerJoin(second).on(firstTconst.eq(second.field(TITLE_PRINCIPALS.TCONST))))
+                .fetch().stream().map(Record1::value1).toList();
     }
 
     String getBestInGenre(String genre, TableField<TitleRatingsRecord, ?> field) {

@@ -2,7 +2,7 @@
 <dataSource name="default">
   <database-model serializer="dbm" dbms="H2" family-id="H2" format-version="4.49">
     <root id="1">
-      <ServerVersion>2.1.210</ServerVersion>
+      <ServerVersion>2.1.214</ServerVersion>
     </root>
     <database id="2" parent="1" name="DEFAULT">
       <Current>1</Current>
@@ -169,8 +169,8 @@
     <schema id="162" parent="2" name="INFORMATION_SCHEMA"/>
     <schema id="163" parent="2" name="PUBLIC">
       <Current>1</Current>
-      <IntrospectionTimestamp>2023-09-28.15:09:19.312</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2023-09-28.11:39:19</LocalIntrospectionTimestamp>
+      <IntrospectionTimestamp>2023-09-29.12:21:00.457</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2023-09-29.08:51:00</LocalIntrospectionTimestamp>
     </schema>
     <table id="164" parent="163" name="NAME_BASICS"/>
     <table id="165" parent="163" name="TITLE_BASICS"/>
@@ -179,12 +179,12 @@
     <table id="168" parent="163" name="TITLE_RATINGS"/>
     <table id="169" parent="163" name="flyway_schema_history"/>
     <column id="170" parent="164" name="NCONST">
-      <DasType>CHARACTER VARYING|0s</DasType>
+      <DasType>CHARACTER VARYING(1000000000)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
     <column id="171" parent="164" name="PRIMARY_NAME">
-      <DasType>CHARACTER VARYING|0s</DasType>
+      <DasType>CHARACTER VARYING(1000000000)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
@@ -198,11 +198,11 @@
       <Position>4</Position>
     </column>
     <column id="174" parent="164" name="PRIMARY_PROFESSION">
-      <DasType>CHARACTER VARYING|0s</DasType>
+      <DasType>CHARACTER VARYING(1000000000)|0s</DasType>
       <Position>5</Position>
     </column>
     <column id="175" parent="164" name="KNOWN_FOR_TITLES">
-      <DasType>CHARACTER VARYING|0s</DasType>
+      <DasType>CHARACTER VARYING(1000000000)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
@@ -211,140 +211,155 @@
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="177" parent="164" name="CONSTRAINT_1">
+    <index id="177" parent="164" name="INDEX_1">
+      <ColNames>DEATH_YEAR</ColNames>
+    </index>
+    <index id="178" parent="164" name="NAME_BASICS_DEATH_YEAR_index">
+      <ColNames>DEATH_YEAR</ColNames>
+    </index>
+    <key id="179" parent="164" name="CONSTRAINT_1">
       <ColNames>NCONST</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <column id="178" parent="165" name="TCONST">
-      <DasType>CHARACTER VARYING|0s</DasType>
+    <column id="180" parent="165" name="TCONST">
+      <DasType>CHARACTER VARYING(1000000000)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="179" parent="165" name="TITLE_TYPE">
-      <DasType>CHARACTER VARYING|0s</DasType>
+    <column id="181" parent="165" name="TITLE_TYPE">
+      <DasType>CHARACTER VARYING(1000000000)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="180" parent="165" name="PRIMARY_TITLE">
-      <DasType>CHARACTER VARYING|0s</DasType>
+    <column id="182" parent="165" name="PRIMARY_TITLE">
+      <DasType>CHARACTER VARYING(1000000000)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="181" parent="165" name="ORIGINAL_TITLE">
-      <DasType>CHARACTER VARYING|0s</DasType>
+    <column id="183" parent="165" name="ORIGINAL_TITLE">
+      <DasType>CHARACTER VARYING(1000000000)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="182" parent="165" name="IS_ADULT">
+    <column id="184" parent="165" name="IS_ADULT">
       <DasType>BOOLEAN|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="183" parent="165" name="START_YEAR">
+    <column id="185" parent="165" name="START_YEAR">
       <DasType>CHARACTER(4)|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="184" parent="165" name="END_YEAR">
+    <column id="186" parent="165" name="END_YEAR">
       <DasType>CHARACTER(4)|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="185" parent="165" name="RUNTIME_MINUTES">
+    <column id="187" parent="165" name="RUNTIME_MINUTES">
       <DasType>INTEGER|0s</DasType>
       <Position>8</Position>
     </column>
-    <column id="186" parent="165" name="GENRES">
-      <DasType>CHARACTER VARYING|0s</DasType>
+    <column id="188" parent="165" name="GENRES">
+      <DasType>CHARACTER VARYING(1000000000)|0s</DasType>
       <Position>9</Position>
     </column>
-    <index id="187" parent="165" name="PRIMARY_KEY_3">
+    <index id="189" parent="165" name="PRIMARY_KEY_3">
       <ColNames>TCONST</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="188" parent="165" name="CONSTRAINT_3">
+    <key id="190" parent="165" name="CONSTRAINT_3">
       <ColNames>TCONST</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <column id="189" parent="166" name="TCONST">
-      <DasType>CHARACTER VARYING|0s</DasType>
+    <column id="191" parent="166" name="TCONST">
+      <DasType>CHARACTER VARYING(1000000000)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="190" parent="166" name="DIRECTORS">
-      <DasType>CHARACTER VARYING|0s</DasType>
+    <column id="192" parent="166" name="DIRECTORS">
+      <DasType>CHARACTER VARYING(1000000000)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="191" parent="166" name="WRITERS">
-      <DasType>CHARACTER VARYING|0s</DasType>
+    <column id="193" parent="166" name="WRITERS">
+      <DasType>CHARACTER VARYING(1000000000)|0s</DasType>
       <Position>3</Position>
     </column>
-    <index id="192" parent="166" name="PRIMARY_KEY_B4">
+    <index id="194" parent="166" name="PRIMARY_KEY_B4">
       <ColNames>TCONST</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="193" parent="166" name="CONSTRAINT_B4">
+    <index id="195" parent="166" name="TITLE_CREW_DIRECTORS_index">
+      <ColNames>DIRECTORS</ColNames>
+    </index>
+    <index id="196" parent="166" name="TITLE_CREW_WRITERS_index">
+      <ColNames>WRITERS</ColNames>
+    </index>
+    <key id="197" parent="166" name="CONSTRAINT_B4">
       <ColNames>TCONST</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <column id="194" parent="167" name="TCONST">
-      <DasType>CHARACTER VARYING|0s</DasType>
+    <column id="198" parent="167" name="TCONST">
+      <DasType>CHARACTER VARYING(1000000000)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="195" parent="167" name="ORDERING">
+    <column id="199" parent="167" name="ORDERING">
       <DasType>INTEGER|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="196" parent="167" name="NCONST">
-      <DasType>CHARACTER VARYING|0s</DasType>
+    <column id="200" parent="167" name="NCONST">
+      <DasType>CHARACTER VARYING(1000000000)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="197" parent="167" name="CATEGORY">
-      <DasType>CHARACTER VARYING|0s</DasType>
+    <column id="201" parent="167" name="CATEGORY">
+      <DasType>CHARACTER VARYING(1000000000)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="198" parent="167" name="JOB">
-      <DasType>CHARACTER VARYING|0s</DasType>
+    <column id="202" parent="167" name="JOB">
+      <DasType>CHARACTER VARYING(1000000000)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="199" parent="167" name="CHARACTERS">
-      <DasType>CHARACTER VARYING|0s</DasType>
+    <column id="203" parent="167" name="CHARACTERS">
+      <DasType>CHARACTER VARYING(1000000000)|0s</DasType>
       <Position>6</Position>
     </column>
-    <index id="200" parent="167" name="PRIMARY_KEY_E">
+    <index id="204" parent="167" name="PRIMARY_KEY_E">
       <ColNames>TCONST
 ORDERING</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="201" parent="167" name="TITLE_PRINCIPALS_pk">
+    <index id="205" parent="167" name="TITLE_PRINCIPALS_NCONST_index">
+      <ColNames>NCONST</ColNames>
+    </index>
+    <key id="206" parent="167" name="TITLE_PRINCIPALS_pk">
       <ColNames>TCONST
 ORDERING</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="202" parent="168" name="TCONST">
-      <DasType>CHARACTER VARYING|0s</DasType>
+    <column id="207" parent="168" name="TCONST">
+      <DasType>CHARACTER VARYING(1000000000)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="203" parent="168" name="AVERAGE_RATING">
+    <column id="208" parent="168" name="AVERAGE_RATING">
       <DasType>DOUBLE PRECISION|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="204" parent="168" name="NUM_VOTES">
+    <column id="209" parent="168" name="NUM_VOTES">
       <DasType>INTEGER|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <foreign-key id="205" parent="168" name="CONSTRAINT_BD">
+    <foreign-key id="210" parent="168" name="CONSTRAINT_BD">
       <ColNames>TCONST</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <OnDelete>restrict</OnDelete>
@@ -352,74 +367,74 @@ ORDERING</ColNames>
       <RefKeyName>CONSTRAINT_3</RefKeyName>
       <RefTableName>TITLE_BASICS</RefTableName>
     </foreign-key>
-    <index id="206" parent="168" name="PRIMARY_KEY_B">
+    <index id="211" parent="168" name="PRIMARY_KEY_B">
       <ColNames>TCONST</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="207" parent="168" name="CONSTRAINT_B">
+    <key id="212" parent="168" name="CONSTRAINT_B">
       <ColNames>TCONST</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <column id="208" parent="169" name="installed_rank">
+    <column id="213" parent="169" name="installed_rank">
       <DasType>INTEGER|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="209" parent="169" name="version">
+    <column id="214" parent="169" name="version">
       <DasType>CHARACTER VARYING(50)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="210" parent="169" name="description">
+    <column id="215" parent="169" name="description">
       <DasType>CHARACTER VARYING(200)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="211" parent="169" name="type">
+    <column id="216" parent="169" name="type">
       <DasType>CHARACTER VARYING(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="212" parent="169" name="script">
+    <column id="217" parent="169" name="script">
       <DasType>CHARACTER VARYING(1000)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="213" parent="169" name="checksum">
+    <column id="218" parent="169" name="checksum">
       <DasType>INTEGER|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="214" parent="169" name="installed_by">
+    <column id="219" parent="169" name="installed_by">
       <DasType>CHARACTER VARYING(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="215" parent="169" name="installed_on">
+    <column id="220" parent="169" name="installed_on">
       <DasType>TIMESTAMP|0s</DasType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <column id="216" parent="169" name="execution_time">
+    <column id="221" parent="169" name="execution_time">
       <DasType>INTEGER|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
-    <column id="217" parent="169" name="success">
+    <column id="222" parent="169" name="success">
       <DasType>BOOLEAN|0s</DasType>
       <NotNull>1</NotNull>
       <Position>10</Position>
     </column>
-    <index id="218" parent="169" name="PRIMARY_KEY_6">
+    <index id="223" parent="169" name="PRIMARY_KEY_6">
       <ColNames>installed_rank</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <index id="219" parent="169" name="flyway_schema_history_s_idx">
+    <index id="224" parent="169" name="flyway_schema_history_s_idx">
       <ColNames>success</ColNames>
     </index>
-    <key id="220" parent="169" name="flyway_schema_history_pk">
+    <key id="225" parent="169" name="flyway_schema_history_pk">
       <ColNames>installed_rank</ColNames>
       <Primary>1</Primary>
     </key>
