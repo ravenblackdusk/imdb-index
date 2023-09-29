@@ -1,3 +1,6 @@
+create alias if not exists FT_INIT for "org.h2.fulltext.FullText.init";
+call FT_INIT();
+
 create table title_basics
 (
     tconst          VARCHAR not null
@@ -11,6 +14,7 @@ create table title_basics
     runtime_minutes INTEGER,
     genres          VARCHAR
 );
+call FT_CREATE_INDEX('PUBLIC', 'TITLE_BASICS', 'GENRES');
 
 create table name_basics
 (
@@ -22,7 +26,7 @@ create table name_basics
     primary_profession VARCHAR,
     known_for_titles   VARCHAR not null
 );
-create index on name_basics(death_year);
+create index on name_basics (death_year);
 
 create table title_principals
 (
@@ -34,7 +38,7 @@ create table title_principals
     characters VARCHAR,
     primary key (tconst, ordering)
 );
-create index on title_principals(nconst);
+create index on title_principals (nconst);
 
 create table title_ratings
 (
@@ -52,4 +56,4 @@ create table title_crew
     directors VARCHAR,
     writers   VARCHAR
 );
-create index on title_crew(directors);
+create index on title_crew (directors);
